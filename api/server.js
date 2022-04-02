@@ -24,11 +24,11 @@ app.post('/api/resizeImage', upload.single('file'), function (req, res) {
 	const ext = req.file.mimetype.split('/')[1]
 	if (!data || !data.name || sizes.length === 0) {
 		return res.status(400).json({
-			error: 'favorite.id is missing',
+			error: 'favorite.sizes are missing',
 		})
 	}
-	sizes.forEach((size) => {
-		sharp(req.file.path).resize({ height: size.height, width: size.width, fit: 'fill' }).toFile(`${fileName}_${size.height}_${size.width}.${ext}`)
+	sizes.forEach(async (size) => {
+		await sharp(req.file.path).resize({ height: size.height, width: size.width, fit: 'fill' }).toFile(`${fileName}_${size.height}_${size.width}.${ext}`)
 	})
 	res.status(201).json()
 })
