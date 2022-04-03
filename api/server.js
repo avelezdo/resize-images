@@ -1,9 +1,9 @@
 const express = require('express')
 const sharp = require('sharp')
 const multer = require('multer')
-const path = require('path')
 const AdmZip = require('adm-zip')
 const app = express()
+const { deleteFilesFromDirectory } = require('./utils')
 app.use(express.json()) //para poder utilizar el body-parser
 
 //multer options
@@ -32,6 +32,8 @@ app.post('/api/resizeImage', upload.single('file'), async function (req, res) {
 	}
 
 	let imageNames = []
+	let fileData,
+		downloadName = null
 	const imageNamePromises = sizes.map(async (size) => {
 		const imageName = `${fileName}_${size.height}_${size.width}.${ext}`
 		imageNames.unshift(imageName)
@@ -40,30 +42,26 @@ app.post('/api/resizeImage', upload.single('file'), async function (req, res) {
 			.toFile(req.file.destination + '/' + imageName)
 	})
 	await Promise.all(imageNamePromises)
-	console.log(imageNames)
 	if (imageNames.length === 1) {
-		const image = path.join(__dirname, '/images', `/${imageNames[0]}`)
-		console.log(imageNames[0])
-		res.set('Content-Disposition', `attachment; filename=${imageNames[0]}`)
-		res.download(image)
+		fileData = await sharp(req.file.path).resize({ height: sizes[0].height, width: sizes[0].width, fit: 'fill' }).toBuffer()
+		downloadName = imageNames[0]
 	} else {
 		imageNames.forEach((imageName) => {
 			zip.addLocalFile(__dirname + '/images/' + `/${imageName}`)
 		})
-		const downloadName = `${Date.now()}.zip`
-		console.log(downloadName)
-		const data = zip.toBuffer()
-
-		// save file zip in root directory
-		zip.writeZip(__dirname + '/' + downloadName)
-
-		// code to download zip file
-		res.set('Content-Type', 'application/octet-stream')
-		res.set('Content-Disposition', `attachment; filename=${downloadName}`)
-		res.set('Content-Length', data.length)
-		res.send(data)
-		res.status(201).json()
+		downloadName = `${Date.now()}.zip`
+		fileData = zip.toBuffer()
+		zip.writeZip(__dirname + '/zips/' + downloadName)
 	}
+
+	deleteFilesFromDirectory('images')
+	deleteFilesFromDirectory('zips')
+
+	res.set('Content-Type', 'application/octet-stream')
+	res.set('Content-Disposition', `attachment; filename=${downloadName}`)
+	res.set('Content-Length', fileData.length)
+	res.send(fileData)
+	res.status(201).json()
 })
 
 app.listen(3001, () => {
