@@ -5,44 +5,49 @@ import './App.css'
 
 function App() {
 	function forceDownload(imageData, headers) {
-		console.log(headers.get('content-disposition'))
-		console.log(headers.get('content-disposition').split('filename=')[1])
 		let anchor = document.createElement('a')
 		document.querySelector('section').appendChild(anchor)
 		const url = window.URL.createObjectURL(imageData)
 		anchor.href = url
 		anchor.download = headers.get('content-disposition').split('filename=')[1]
-		console.log(anchor)
 		anchor.click()
 		window.URL.revokeObjectURL(url)
 		document.querySelector('section').removeChild(anchor)
 	}
 
-	async function resizeImage() {
-		const URL = '/api/resizeImage'
+	function getSizesData() {
 		let sizes = [...document.querySelectorAll('.sizes-wrapper')].map((sizesWrapper) => {
 			return {
 				height: Number(sizesWrapper.children[0].value),
 				width: Number(sizesWrapper.children[1].value),
 			}
 		})
-		sizes = [{ height: 222, width: 444 }]
-		const data = {
+
+		return {
 			name: 'file',
 			sizes: JSON.stringify(sizes),
 		}
+	}
+
+	function getFormData(sizesData) {
 		const fileInput = document.querySelector('.image-upload')
 		const formData = new FormData()
-
 		formData.append('file', fileInput.files[0])
 
-		for (const name in data) {
-			formData.append(name, data[name])
+		for (const name in sizesData) {
+			formData.append(name, sizesData[name])
 		}
+
+		return formData
+	}
+
+	async function resizeImage() {
+		const URL = '/api/resizeImage'
+		const data = getSizesData()
 
 		const response = await fetch(URL, {
 			method: 'POST',
-			body: formData,
+			body: getFormData(data),
 		})
 		const imageData = await response.blob()
 		forceDownload(imageData, response.headers)
