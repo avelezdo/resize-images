@@ -4,6 +4,20 @@ import Size from './components/Size'
 import './App.css'
 
 function App() {
+	function forceDownload(imageData, headers) {
+		console.log(headers.get('content-disposition'))
+		console.log(headers.get('content-disposition').split('filename=')[1])
+		let anchor = document.createElement('a')
+		document.querySelector('section').appendChild(anchor)
+		const url = window.URL.createObjectURL(imageData)
+		anchor.href = url
+		anchor.download = headers.get('content-disposition').split('filename=')[1]
+		console.log(anchor)
+		anchor.click()
+		window.URL.revokeObjectURL(url)
+		document.querySelector('section').removeChild(anchor)
+	}
+
 	async function resizeImage() {
 		const URL = '/api/resizeImage'
 		let sizes = [...document.querySelectorAll('.sizes-wrapper')].map((sizesWrapper) => {
@@ -12,6 +26,7 @@ function App() {
 				width: Number(sizesWrapper.children[1].value),
 			}
 		})
+		sizes = [{ height: 222, width: 444 }]
 		const data = {
 			name: 'file',
 			sizes: JSON.stringify(sizes),
@@ -29,6 +44,8 @@ function App() {
 			method: 'POST',
 			body: formData,
 		})
+		const imageData = await response.blob()
+		forceDownload(imageData, response.headers)
 	}
 
 	const [data, setData] = useState(null)
