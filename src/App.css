@@ -26,8 +26,11 @@ section {
 	top: -200px;
 	background-color: #f3f3f3;
 	border-radius: 10px;
-	margin-inline: 20%;
+	margin-inline: auto;
 	height: 300px;
 	display: flex;
 	justify-content: space-around;
+	gap: 2rem;
+	max-width: 940px;
+	padding: 1rem;
 }
