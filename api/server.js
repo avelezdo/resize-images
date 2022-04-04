@@ -1,12 +1,9 @@
 const express = require('express')
-const sharp = require('sharp')
 const multer = require('multer')
-const AdmZip = require('adm-zip')
 const app = express()
-const { deleteFilesFromDirectory } = require('./utils')
+const { deleteFilesFromDirectory, getImageNames, oneImageTreatment, manyImageTreatment } = require('./utils')
 app.use(express.json()) //para poder utilizar el body-parser
 
-//multer options
 const upload = multer({
 	dest: 'images',
 })
@@ -22,37 +19,15 @@ app.get('/api', function (_, res) {
 app.post('/api/resizeImage', upload.single('file'), async function (req, res) {
 	const data = req.body
 	const sizes = JSON.parse(data.sizes)
-	const fileName = req.file.originalname.split('.')[0]
-	const ext = req.file.mimetype.split('/')[1]
-	const zip = new AdmZip()
 	if (!data || !data.name || sizes.length === 0) {
 		return res.status(400).json({
 			error: 'favorite.sizes are missing',
 		})
 	}
 
-	let imageNames = []
-	let fileData,
-		downloadName = null
-	const imageNamePromises = sizes.map(async (size) => {
-		const imageName = `${fileName}_${size.height}_${size.width}.${ext}`
-		imageNames.unshift(imageName)
-		return await sharp(req.file.path)
-			.resize({ height: size.height, width: size.width, fit: 'fill' })
-			.toFile(req.file.destination + '/' + imageName)
-	})
-	await Promise.all(imageNamePromises)
-	if (imageNames.length === 1) {
-		fileData = await sharp(req.file.path).resize({ height: sizes[0].height, width: sizes[0].width, fit: 'fill' }).toBuffer()
-		downloadName = imageNames[0]
-	} else {
-		imageNames.forEach((imageName) => {
-			zip.addLocalFile(__dirname + '/images/' + `/${imageName}`)
-		})
-		downloadName = `${Date.now()}.zip`
-		fileData = zip.toBuffer()
-		zip.writeZip(__dirname + '/zips/' + downloadName)
-	}
+	let imageNames = await getImageNames(sizes, req.file)
+	let { fileData, downloadName } =
+		imageNames.length === 1 ? await oneImageTreatment(req.file.path, sizes[0], imageNames[0]) : await manyImageTreatment(imageNames)
 
 	deleteFilesFromDirectory('images')
 	deleteFilesFromDirectory('zips')
