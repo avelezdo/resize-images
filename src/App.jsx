@@ -20,7 +20,10 @@ function App() {
 
 	return (
 		<div className='App'>
-			<header className='App-header'>{/* <p>{!data ? 'Loading...' : data}</p> */}</header>
+			<header className='App-header'>
+				<img className='resize-me' src='/src/resize_me.png' alt='' />
+				{/* <p>{!data ? 'Loading...' : data}</p> */}
+			</header>
 			<section>
 				<UploadImage></UploadImage>
 				<div className='w-1/2'>
