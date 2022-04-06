@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import UploadImage from './components/UploadImage'
-import Size from './components/Size'
+import DimensionList from './components/DimensionList'
 import './App.css'
 import { resizeImage } from './AppUtils'
 
@@ -20,16 +20,12 @@ function App() {
 
 	return (
 		<div className='App'>
-			<header className='App-header'>
-				<p>{!data ? 'Loading...' : data}</p>
-			</header>
+			<header className='App-header'>{/* <p>{!data ? 'Loading...' : data}</p> */}</header>
 			<section>
 				<UploadImage></UploadImage>
 				<div className='w-1/2'>
-					<Size callback={setSizeCallback}></Size>
-					<button className='rounded-full bg-black' onClick={resizeImage}>
-						Download
-					</button>
+					<DimensionList callback={setSizeCallback}></DimensionList>
+					<button onClick={resizeImage}>Download</button>
 				</div>
 			</section>
 		</div>

@@ -1,0 +1,96 @@
+.plus_add_button {
+	text-align: left;
+	width: 100%;
+	margin-left: -2px;
+	padding: 0 0 8px;
+	color: grey;
+	font-size: 14px;
+	white-space: nowrap;
+}
+
+.plus_add_button:hover {
+	color: #de4c4a !important;
+}
+
+.plus_add_button:hover .icon_add {
+	color: #fff !important;
+	background-color: #de4c4a;
+}
+
+.plus_add_button .icon_add {
+	align-items: center;
+	border-radius: 50%;
+	display: inline-flex;
+	height: 17px;
+	justify-content: center;
+	margin-right: 11px;
+	-webkit-transform: translateY(8px);
+	transform: translateY(8px);
+	vertical-align: 7px;
+	width: 17px;
+}
+
+.icon_add {
+	color: #de4c4a;
+}
+
+.sizes {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+
+.sizes-wrapper {
+	position: relative;
+	display: flex;
+	width: 100%;
+	gap: 0.25rem;
+}
+
+.sizes-wrapper svg {
+	position: absolute;
+	top: 34px;
+	left: -20px;
+	color: #de4c4a;
+	align-items: center;
+	border-radius: 50%;
+}
+
+.sizes-wrapper svg:hover {
+	color: #fff !important;
+	background-color: #de4c4a;
+}
+
+.sizes-wrapper input {
+	height: 2.25rem;
+	padding-left: 0.25rem;
+}
+
+.size {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+}
+
+.size label {
+	align-self: start;
+}
+
+.size .unit {
+	position: absolute;
+	right: 1px;
+	top: 0px;
+	width: 38px;
+	height: 36px;
+	line-height: 37px;
+	display: flex;
+	justify-content: center;
+	/* border-left: 1px solid #656d77; */
+	border-left: 1px solid grey;
+	color: grey;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+	opacity: 0;
+}
