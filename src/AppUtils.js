@@ -11,9 +11,11 @@ function forceDownload(imageData, headers) {
 
 function getSizesData() {
 	let sizes = [...document.querySelectorAll('.sizes-wrapper')].map((sizesWrapper) => {
+		const widthInput = sizesWrapper.querySelectorAll('input')[0]
+		const heightInput = sizesWrapper.querySelectorAll('input')[1]
 		return {
-			height: Number(sizesWrapper.children[0].value),
-			width: Number(sizesWrapper.children[1].value),
+			height: Number(heightInput.value),
+			width: Number(widthInput.value),
 		}
 	})
 
