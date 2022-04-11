@@ -39,6 +39,11 @@ app.post('/api/resizeImage', upload.single('file'), async function (req, res) {
 	res.status(201).json()
 })
 
+// All other GET requests not handled before will return our React app
+app.get('*', (req, res) => {
+	res.sendFile(path.resolve(__dirname, '../', 'index.html'))
+})
+
 app.listen(3001, () => {
 	console.log('app listening on port 3001')
 })
