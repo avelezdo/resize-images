@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import UploadImage from './components/UploadImage'
 import DimensionList from './components/DimensionList'
 import './App.css'
+import './downloadButton.css'
 import { resizeImage } from './AppUtils'
 
 function App() {
@@ -28,7 +29,9 @@ function App() {
 				<UploadImage></UploadImage>
 				<div className='w-1/2'>
 					<DimensionList callback={setSizeCallback}></DimensionList>
-					<button onClick={resizeImage}>Download</button>
+					<button className='download-button demo' onClick={resizeImage}>
+						Download
+					</button>
 				</div>
 			</section>
 		</div>
