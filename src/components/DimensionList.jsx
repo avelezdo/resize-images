@@ -19,7 +19,7 @@ function DimensionList() {
 	//se debería capturar el evento de removeDimensions que se produce en el hijo
 
 	return (
-		<div>
+		<div className='dimensions-wrapper'>
 			{dimensionList}
 			<button type='button' data-add-task-navigation-element='true' className='plus_add_button' onClick={addDimensions}>
 				<span className='icon_add' aria-hidden='true'>
