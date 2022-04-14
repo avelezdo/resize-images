@@ -1,23 +1,28 @@
-.plus_add_button {
+.sizes-buttons-wrapper button {
 	text-align: left;
-	width: 100%;
-	margin-left: -2px;
-	padding: 0 0 8px;
+	width: fit-content;
+	/* padding: 0 0 8px; */
+	padding: 0;
 	color: grey;
 	font-size: 14px;
 	white-space: nowrap;
 }
-
-.plus_add_button:hover {
+.add-icon,
+.remove-icon {
+	color: #de4c4a;
+}
+.sizes-buttons-wrapper button:hover {
 	color: #de4c4a !important;
 }
 
-.plus_add_button:hover .icon_add {
+.sizes-buttons-wrapper button:hover .add-icon,
+.sizes-buttons-wrapper button:hover .remove-icon {
 	color: #fff !important;
 	background-color: #de4c4a;
 }
 
-.plus_add_button .icon_add {
+.sizes-buttons-wrapper button .add-icon,
+.sizes-buttons-wrapper button .remove-icon {
 	align-items: center;
 	border-radius: 50%;
 	display: inline-flex;
@@ -30,11 +35,9 @@
 	width: 17px;
 }
 
-.icon_add {
-	color: #de4c4a;
-}
-
 .dimensions-wrapper {
+	display: flex;
+	flex-direction: column;
 	height: calc(225px - 1rem);
 	overflow-y: auto;
 }
