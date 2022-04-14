@@ -8,7 +8,7 @@ function UploadImage() {
 	}, [])
 
 	return (
-		<div className='box'>
+		<div className='box w-1/2'>
 			<div className='js--image-preview'></div>
 			<div className='upload-options'>
 				<label>

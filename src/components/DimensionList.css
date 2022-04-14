@@ -34,6 +34,11 @@
 	color: #de4c4a;
 }
 
+.dimensions-wrapper {
+	height: calc(225px - 1rem);
+	overflow-y: auto;
+}
+
 .sizes {
 	display: flex;
 	flex-direction: column;
