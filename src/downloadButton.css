@@ -15,22 +15,18 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin-top: 1rem;
 }
 
-.download-button.demo {
-	/*background-image:
-        linear-gradient(white, white),
-        linear-gradient(180deg, cornflowerblue, purple);*/
-
+.download-button {
 	background-image: linear-gradient(white, white), linear-gradient(270deg, #00d7b9, #b95dd7 50%, #ffb367 100%);
-
 	background-repeat: no-repeat;
 	background-origin: padding-box, border-box;
 	text-align: center;
 }
 
-.download-button.animated {
-	background-image: linear-gradient(white, white), linear-gradient(180deg, cornflowerblue, purple 50%, cornflowerblue);
+.download-button:hover {
+	background-image: linear-gradient(white, white), linear-gradient(180deg, #00d7b9, #b95dd7 50%, #ffb367 100%);
 
 	background-repeat: no-repeat;
 	background-size: 100% 100%, 100% 200%;

@@ -29,7 +29,7 @@ function App() {
 				<UploadImage></UploadImage>
 				<div className='w-1/2'>
 					<DimensionList callback={setSizeCallback}></DimensionList>
-					<button className='download-button demo' onClick={resizeImage}>
+					<button className='download-button' onClick={resizeImage}>
 						Download
 					</button>
 				</div>
