@@ -4,13 +4,13 @@ import Dimensions from './Dimensions'
 
 function DimensionList() {
 	const [dimensionsCounter, setDimensionsCounter] = useState(1)
-	const [dimensionList, setDimensionList] = useState([<Dimensions dimensionsCounter={dimensionsCounter} key={0}></Dimensions>])
+	const [dimensionList, setDimensionList] = useState([<Dimensions dimensionsCounter={dimensionsCounter} key={0} />])
 
 	const addDimensions = () => {
 		setDimensionsCounter((prevState) => prevState + 1)
 		setDimensionList((prevState) => {
 			const newDimensionList = [...prevState]
-			newDimensionList.push(<Dimensions dimensionsCounter={dimensionsCounter} key={dimensionsCounter}></Dimensions>)
+			newDimensionList.push(<Dimensions dimensionsCounter={dimensionsCounter} key={dimensionsCounter} />)
 			return newDimensionList
 		})
 	}
@@ -34,12 +34,13 @@ function DimensionList() {
 							<path
 								d='M6 6V.5a.5.5 0 0 1 1 0V6h5.5a.5.5 0 1 1 0 1H7v5.5a.5.5 0 1 1-1 0V7H.5a.5.5 0 0 1 0-1H6z'
 								fill='currentColor'
-								fillRule='evenodd'></path>
+								fillRule='evenodd'
+							/>
 						</svg>
 					</span>
 					Add size
 				</button>
-				{dimensionsCounter > 1 && <span className='font-thin self-center'> | </span>}
+				{dimensionsCounter > 1 && <span className='font-thin self-center text-stone-400'> | </span>}
 				{dimensionsCounter > 1 && (
 					<button className='remove-size' onClick={removeDimensions}>
 						<span className='remove-icon'>

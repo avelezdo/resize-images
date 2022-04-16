@@ -1,5 +1,5 @@
 function forceDownload(imageData, headers) {
-	let anchor = document.createElement('a')
+	const anchor = document.createElement('a')
 	document.querySelector('section').appendChild(anchor)
 	const url = window.URL.createObjectURL(imageData)
 	anchor.href = url
@@ -10,7 +10,7 @@ function forceDownload(imageData, headers) {
 }
 
 function getSizesData() {
-	let sizes = [...document.querySelectorAll('.sizes-wrapper')].map((sizesWrapper) => {
+	const sizes = [...document.querySelectorAll('.sizes-wrapper')].map((sizesWrapper) => {
 		const widthInput = sizesWrapper.querySelectorAll('input')[0]
 		const heightInput = sizesWrapper.querySelectorAll('input')[1]
 		return {

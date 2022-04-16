@@ -1,15 +1,15 @@
 function initImageUpload(box) {
-	let uploadField = box.querySelector('.image-upload')
+	const uploadField = box.querySelector('.image-upload')
 	uploadField.addEventListener('change', getFile)
 
 	function getFile(e) {
-		let file = e.currentTarget.files[0]
+		const file = e.currentTarget.files[0]
 		checkType(file)
 	}
 
 	function previewImage(file) {
-		let thumb = box.querySelector('.js--image-preview'),
-			reader = new FileReader()
+		const thumb = box.querySelector('.js--image-preview')
+		const reader = new FileReader()
 
 		reader.onload = function () {
 			thumb.style.backgroundImage = 'url(' + reader.result + ')'
@@ -19,7 +19,7 @@ function initImageUpload(box) {
 	}
 
 	function checkType(file) {
-		let imageType = /image.*/
+		const imageType = /image.*/
 		if (!file.type.match(imageType)) {
 			throw 'El archivo no es una imagen'
 		} else if (!file) {
@@ -32,9 +32,9 @@ function initImageUpload(box) {
 
 // initialize box-scope
 function initImageUploadHandlers() {
-	var boxes = document.querySelectorAll('.box')
+	const boxes = document.querySelectorAll('.box')
 	for (let i = 0; i < boxes.length; i++) {
-		let box = boxes[i]
+		const box = boxes[i]
 		initImageUpload(box)
 	}
 }

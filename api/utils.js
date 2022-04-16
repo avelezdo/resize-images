@@ -30,7 +30,7 @@ function reduceWeight(imageNames) {
 
 async function getImageNames(sizes, file) {
 	return new Promise(async (res, rej) => {
-		let imageNames = []
+		const imageNames = []
 		const fileName = file.originalname.split('.')[0]
 		const ext = file.mimetype.split('/')[1]
 
