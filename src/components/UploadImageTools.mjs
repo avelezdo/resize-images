@@ -1,10 +1,12 @@
-function initImageUpload(box) {
+function initImageUpload(box, callback) {
 	const uploadField = box.querySelector('.image-upload')
-	uploadField.addEventListener('change', getFile)
+    uploadField.addEventListener('change', getFile)
+    console.log('dentro')
 
 	function getFile(e) {
 		const file = e.currentTarget.files[0]
-		checkType(file)
+        checkType(file)
+        callback()
 	}
 
 	function previewImage(file) {
@@ -30,13 +32,8 @@ function initImageUpload(box) {
 	}
 }
 
-// initialize box-scope
-function initImageUploadHandlers() {
-	const boxes = document.querySelectorAll('.box')
-	for (let i = 0; i < boxes.length; i++) {
-		const box = boxes[i]
-		initImageUpload(box)
-	}
+function initImageUploadHandlers(callback) {
+    initImageUpload(document.querySelector('.box'), callback)
 }
 
 export { initImageUploadHandlers }

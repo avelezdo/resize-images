@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import { DimensionsContextProvider } from './context/DimensionsContext'
+
 import UploadImage from './components/UploadImage'
 import DimensionList from './components/DimensionList'
 import './App.css'
@@ -7,7 +9,7 @@ import { resizeImage } from './AppUtils'
 
 function App() {
 	const [data, setData] = useState(null)
-	let [size, setSize] = useState(0)
+	const [size, setSize] = useState(0)
 	function setSizeCallback(size) {
 		setSize(size)
 	}
@@ -26,13 +28,15 @@ function App() {
 				{/* <p>{!data ? 'Loading...' : data}</p> */}
 			</header>
 			<section>
-				<UploadImage></UploadImage>
-				<div className='w-1/2'>
-					<DimensionList callback={setSizeCallback}></DimensionList>
-					<button className='download-button' onClick={resizeImage}>
-						Download
-					</button>
-				</div>
+                <DimensionsContextProvider>
+					<UploadImage />
+					<div className='w-1/2'>
+						<DimensionList callback={setSizeCallback} />
+						<button className='download-button' onClick={resizeImage}>
+							Download
+						</button>
+					</div>
+				</DimensionsContextProvider>
 			</section>
 		</div>
 	)
