@@ -1,8 +1,8 @@
 import { useState, useEffect, useContext } from 'react'
 import DimensionsContext, { DimensionsContextProvider } from './context/DimensionsContext'
 
-import UploadImage from './components/UploadImage'
-import DimensionList from './components/DimensionList'
+import UploadImage from './components/UploadImage/UploadImage'
+import DimensionList from './components/DimensionList/DimensionList'
 import DownloadButton from './components/DownloadButton/DownloadButton'
 
 import './App.css'

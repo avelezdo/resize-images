@@ -1,12 +1,11 @@
 function initImageUpload(box, callback) {
 	const uploadField = box.querySelector('.image-upload')
-    uploadField.addEventListener('change', getFile)
-    console.log('dentro')
+	uploadField.addEventListener('change', getFile)
 
 	function getFile(e) {
 		const file = e.currentTarget.files[0]
-        checkType(file)
-        callback()
+		checkType(file)
+		callback()
 	}
 
 	function previewImage(file) {
@@ -33,7 +32,7 @@ function initImageUpload(box, callback) {
 }
 
 function initImageUploadHandlers(callback) {
-    initImageUpload(document.querySelector('.box'), callback)
+	initImageUpload(document.querySelector('.box'), callback)
 }
 
 export { initImageUploadHandlers }

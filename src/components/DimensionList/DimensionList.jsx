@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react'
 import './DimensionList.css'
-import Dimensions from './Dimensions'
-import DimensionsContext from '../context/DimensionsContext'
+import Dimensions from '../Dimensions'
+import DimensionsContext from '../../context/DimensionsContext'
 
 function DimensionList() {
 	const { areDimensionsEnabled } = useContext(DimensionsContext)
