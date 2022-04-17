@@ -10,7 +10,7 @@ function forceDownload(imageData, headers) {
 }
 
 function getSizesData() {
-	const sizes = [...document.querySelectorAll('.sizes-wrapper')].map((sizesWrapper) => {
+	const sizes = [...document.querySelectorAll('.dimensions-list-wrapper')].map((sizesWrapper) => {
 		const widthInput = sizesWrapper.querySelectorAll('input')[0]
 		const heightInput = sizesWrapper.querySelectorAll('input')[1]
 		return {

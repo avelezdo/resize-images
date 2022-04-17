@@ -48,14 +48,14 @@
 	gap: 0.25rem;
 }
 
-.sizes-wrapper {
+.dimensions-list-wrapper {
 	position: relative;
 	display: flex;
 	width: 100%;
 	gap: 0.25rem;
 }
 
-.sizes-wrapper svg {
+.dimensions-list-wrapper svg {
 	position: absolute;
 	top: 34px;
 	left: -20px;
@@ -64,17 +64,17 @@
 	border-radius: 50%;
 }
 
-.sizes-wrapper svg:hover {
+.dimensions-list-wrapper svg:hover {
 	color: #fff !important;
 	background-color: #de4c4a;
 }
 
-.sizes-wrapper input {
+.dimensions-list-wrapper input {
 	height: 2.25rem;
 	padding-left: 0.25rem;
 }
 
-.sizes-wrapper input:disabled {
+.dimensions-list-wrapper input:disabled {
     filter: brightness(.95);
 }
 
