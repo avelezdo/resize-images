@@ -12,12 +12,12 @@
 	color: #de4c4a;
 }
 .sizes-buttons-wrapper button:hover {
-	color: #de4c4a !important;
+	color: #de4c4a;
 }
 
 .sizes-buttons-wrapper button:hover .add-icon,
 .sizes-buttons-wrapper button:hover .remove-icon {
-	color: #fff !important;
+	color: #fff;
 	background-color: #de4c4a;
 }
 
@@ -65,7 +65,7 @@
 }
 
 .dimensions-list-wrapper svg:hover {
-	color: #fff !important;
+	color: #fff;
 	background-color: #de4c4a;
 }
 
@@ -75,7 +75,7 @@
 }
 
 .dimensions-list-wrapper input:disabled {
-    filter: brightness(.95);
+	filter: brightness(0.95);
 }
 
 .size {
@@ -105,4 +105,17 @@
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
 	opacity: 0;
+}
+
+.add-dimensions-button:disabled:hover {
+	color: gray;
+}
+
+.add-dimensions-button:disabled .add-icon {
+	color: gray;
+}
+
+.add-dimensions-button:disabled:hover .add-icon {
+	background-color: transparent;
+	color: gray;
 }

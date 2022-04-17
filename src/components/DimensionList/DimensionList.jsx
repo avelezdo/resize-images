@@ -30,7 +30,7 @@ function DimensionList() {
 		<div className='dimensions-wrapper'>
 			{dimensionList}
 			<div className='flex justify-start gap-3 sizes-buttons-wrapper'>
-				<button type='button' className='plus_add_button' onClick={addDimensions} disabled={!areDimensionsEnabled}>
+				<button type='button' className='add-dimensions-button' onClick={addDimensions} disabled={!areDimensionsEnabled}>
 					<span className='add-icon' aria-hidden='true'>
 						<svg width='13' height='13'>
 							<path

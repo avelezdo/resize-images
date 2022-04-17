@@ -19,9 +19,6 @@
 	justify-content: center;
 	align-items: center;
 	margin-top: 1rem;
-}
-
-.download-button {
 	background-image: linear-gradient(white, white), linear-gradient(270deg, #00d7b9, #b95dd7 50%, #ffb367 100%);
 	background-repeat: no-repeat;
 	background-origin: padding-box, border-box;
@@ -30,12 +27,22 @@
 
 .download-button:hover {
 	background-image: linear-gradient(white, white), linear-gradient(180deg, #00d7b9, #b95dd7 50%, #ffb367 100%);
-
 	background-repeat: no-repeat;
 	background-size: 100% 100%, 100% 200%;
 	background-position: 0 0, 0 100%;
 	background-origin: padding-box, border-box;
 	animation: highlight 1s infinite alternate;
+}
+
+.download-button:disabled {
+	filter: grayscale(90%);
+}
+
+.download-button:disabled:hover {
+	background-image: linear-gradient(white, white), linear-gradient(270deg, #00d7b9, #b95dd7 50%, #ffb367 100%);
+	background-repeat: no-repeat;
+	background-origin: padding-box, border-box;
+	animation: none;
 }
 
 @keyframes highlight {
