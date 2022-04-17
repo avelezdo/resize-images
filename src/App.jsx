@@ -3,9 +3,9 @@ import DimensionsContext, { DimensionsContextProvider } from './context/Dimensio
 
 import UploadImage from './components/UploadImage'
 import DimensionList from './components/DimensionList'
+import DownloadButton from './components/DownloadButton/DownloadButton'
+
 import './App.css'
-import './downloadButton.css'
-import { downloadClickHandler } from './AppUtils'
 
 function App() {
 	const { areDimensionsEnabled } = useContext(DimensionsContext)
@@ -34,9 +34,7 @@ function App() {
 					<UploadImage />
 					<div className='w-1/2'>
 						<DimensionList callback={setSizeCallback} />
-						<button className='download-button' onClick={downloadClickHandler} disabled={!areDimensionsEnabled}>
-							Download
-						</button>
+						<DownloadButton />
 					</div>
 				</DimensionsContextProvider>
 			</section>
