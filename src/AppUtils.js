@@ -49,4 +49,10 @@ async function resizeImage() {
 	forceDownload(imageData, response.headers)
 }
 
-export { resizeImage }
+const downloadClickHandler = async () => {
+	if (document.querySelector('.dimensions-list-wrapper').checkValidity()) {
+		await resizeImage()
+	}
+}
+
+export { downloadClickHandler }

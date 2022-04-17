@@ -5,7 +5,7 @@ import UploadImage from './components/UploadImage'
 import DimensionList from './components/DimensionList'
 import './App.css'
 import './downloadButton.css'
-import { resizeImage } from './AppUtils'
+import { downloadClickHandler } from './AppUtils'
 
 function App() {
 	const [data, setData] = useState(null)
@@ -13,6 +13,7 @@ function App() {
 	function setSizeCallback(size) {
 		setSize(size)
 	}
+
 	useEffect(() => {
 		fetch('/api')
 			.then((res) => res.json())
@@ -28,11 +29,11 @@ function App() {
 				{/* <p>{!data ? 'Loading...' : data}</p> */}
 			</header>
 			<section>
-                <DimensionsContextProvider>
+				<DimensionsContextProvider>
 					<UploadImage />
 					<div className='w-1/2'>
 						<DimensionList callback={setSizeCallback} />
-						<button className='download-button' onClick={resizeImage}>
+						<button className='download-button' onClick={downloadClickHandler}>
 							Download
 						</button>
 					</div>
