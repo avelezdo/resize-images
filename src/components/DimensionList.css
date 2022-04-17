@@ -74,6 +74,10 @@
 	padding-left: 0.25rem;
 }
 
+.sizes-wrapper input:disabled {
+    filter: brightness(.95);
+}
+
 .size {
 	display: flex;
 	flex-direction: column;
