@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { DimensionsContextProvider } from './context/DimensionsContext'
+import { useState, useEffect, useContext } from 'react'
+import DimensionsContext, { DimensionsContextProvider } from './context/DimensionsContext'
 
 import UploadImage from './components/UploadImage'
 import DimensionList from './components/DimensionList'
@@ -8,6 +8,7 @@ import './downloadButton.css'
 import { downloadClickHandler } from './AppUtils'
 
 function App() {
+	const { areDimensionsEnabled } = useContext(DimensionsContext)
 	const [data, setData] = useState(null)
 	const [size, setSize] = useState(0)
 	function setSizeCallback(size) {
@@ -33,7 +34,7 @@ function App() {
 					<UploadImage />
 					<div className='w-1/2'>
 						<DimensionList callback={setSizeCallback} />
-						<button className='download-button' onClick={downloadClickHandler}>
+						<button className='download-button' onClick={downloadClickHandler} disabled={!areDimensionsEnabled}>
 							Download
 						</button>
 					</div>

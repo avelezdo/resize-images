@@ -1,8 +1,10 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import './DimensionList.css'
 import Dimensions from './Dimensions'
+import DimensionsContext from '../context/DimensionsContext'
 
 function DimensionList() {
+	const { areDimensionsEnabled } = useContext(DimensionsContext)
 	const [dimensionsCounter, setDimensionsCounter] = useState(1)
 	const [dimensionList, setDimensionList] = useState([<Dimensions dimensionsCounter={dimensionsCounter} key={0} />])
 
@@ -28,7 +30,7 @@ function DimensionList() {
 		<div className='dimensions-wrapper'>
 			{dimensionList}
 			<div className='flex justify-start gap-3 sizes-buttons-wrapper'>
-				<button type='button' className='plus_add_button' onClick={addDimensions}>
+				<button type='button' className='plus_add_button' onClick={addDimensions} disabled={!areDimensionsEnabled}>
 					<span className='add-icon' aria-hidden='true'>
 						<svg width='13' height='13'>
 							<path
