@@ -17,7 +17,7 @@ function DimensionList() {
 		setDimensionsCounter((prevState) => prevState + 1)
 		setDimensionList((prevState) => {
 			const newDimensionList = [...prevState]
-			newDimensionList.push(<Dimensions dimensionsCounter={dimensionsCounter} key={dimensionsCounter} />)
+			newDimensionList.push(<Dimensions dimensionsCounter={dimensionsCounter} callback={areDimensionsFull} key={dimensionsCounter} />)
 			return newDimensionList
 		})
 	}
