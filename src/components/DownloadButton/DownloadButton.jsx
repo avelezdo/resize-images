@@ -1,14 +1,14 @@
 import { useContext } from 'react'
-import DimensionsContext from '../../context/DimensionsContext'
+import DownloadButtonContext from '../../context/DownloadButtonContext'
 import { downloadClickHandler } from '../../AppUtils'
 
 import './DownloadButton.css'
 
 export default function DownloadButton() {
-	const { areDimensionsEnabled } = useContext(DimensionsContext)
+	const { isDownloadButtonEnabled } = useContext(DownloadButtonContext)
 
 	return (
-		<button className='download-button' onClick={downloadClickHandler} disabled={!areDimensionsEnabled}>
+		<button className='download-button' onClick={downloadClickHandler} disabled={!isDownloadButtonEnabled}>
 			Download
 		</button>
 	)

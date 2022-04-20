@@ -2,11 +2,16 @@ import { useState, useContext } from 'react'
 import './DimensionList.css'
 import Dimensions from '../Dimensions'
 import DimensionsContext from '../../context/DimensionsContext'
+import DownloadButtonContext from '../../context/DownloadButtonContext'
 
 function DimensionList() {
 	const { areDimensionsEnabled } = useContext(DimensionsContext)
+	const { setDownloadButtonEnabled } = useContext(DownloadButtonContext)
 	const [dimensionsCounter, setDimensionsCounter] = useState(1)
-	const [dimensionList, setDimensionList] = useState([<Dimensions dimensionsCounter={dimensionsCounter} key={0} />])
+	function areDimensionsFull(result) {
+		setDownloadButtonEnabled(result)
+	}
+	const [dimensionList, setDimensionList] = useState([<Dimensions dimensionsCounter={dimensionsCounter} callback={areDimensionsFull} key={0} />])
 
 	const addDimensions = () => {
 		setDimensionsCounter((prevState) => prevState + 1)

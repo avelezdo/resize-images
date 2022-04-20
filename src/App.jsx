@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from 'react'
 import DimensionsContext, { DimensionsContextProvider } from './context/DimensionsContext'
+import { DownloadButtonContextProvider } from './context/DownloadButtonContext'
 
 import UploadImage from './components/UploadImage/UploadImage'
 import DimensionList from './components/DimensionList/DimensionList'
@@ -31,11 +32,13 @@ function App() {
 			</header>
 			<section>
 				<DimensionsContextProvider>
-					<UploadImage />
-					<div className='w-1/2'>
-						<DimensionList callback={setSizeCallback} />
-						<DownloadButton />
-					</div>
+					<DownloadButtonContextProvider>
+						<UploadImage />
+						<div className='w-1/2'>
+							<DimensionList callback={setSizeCallback} />
+							<DownloadButton />
+						</div>
+					</DownloadButtonContextProvider>
 				</DimensionsContextProvider>
 			</section>
 		</div>
