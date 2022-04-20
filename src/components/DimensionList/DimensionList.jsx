@@ -33,7 +33,7 @@ function DimensionList() {
 
 	return (
 		<div className='dimensions-wrapper'>
-			{dimensionList}
+			<form className='dimensions-list-form'>{dimensionList}</form>
 			<div className='flex justify-start gap-3 sizes-buttons-wrapper'>
 				<button type='button' className='add-dimensions-button' onClick={addDimensions} disabled={!areDimensionsEnabled}>
 					<span className='add-icon' aria-hidden='true'>
