@@ -1,5 +1,5 @@
 function initImageUpload(box, callback) {
-	const uploadField = box.querySelector('.image-upload')
+	const uploadField = box.querySelector('.upload-image-button')
 	uploadField.addEventListener('change', getFile)
 
 	function getFile(e) {
@@ -9,14 +9,13 @@ function initImageUpload(box, callback) {
 	}
 
 	function previewImage(file) {
-		const thumb = box.querySelector('.js--image-preview')
+		const thumb = box.querySelector('.image-preview')
 		const reader = new FileReader()
 
 		reader.onload = function () {
 			thumb.style.backgroundImage = 'url(' + reader.result + ')'
 		}
 		reader.readAsDataURL(file)
-		thumb.className += ' js--no-default'
 	}
 
 	function checkType(file) {

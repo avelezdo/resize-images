@@ -26,7 +26,7 @@ function getSizesData() {
 }
 
 function getFormData(sizesData) {
-	const fileInput = document.querySelector('.image-upload')
+	const fileInput = document.querySelector('.upload-image-button')
 	const formData = new FormData()
 	formData.append('file', fileInput.files[0])
 

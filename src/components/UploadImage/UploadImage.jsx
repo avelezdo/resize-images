@@ -16,10 +16,11 @@ function UploadImage() {
 
 	return (
 		<div className='box w-1/2'>
-			<div className='js--image-preview' />
+			<div className='image-preview' />
 			<div className='upload-options'>
 				<label>
-					<input type='file' className='image-upload' accept='image/*' />
+					Browse
+					<input type='file' className='upload-image-button' accept='image/*' />
 				</label>
 			</div>
 		</div>
