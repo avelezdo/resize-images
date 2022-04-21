@@ -50,7 +50,7 @@ async function resizeImage() {
 }
 
 const downloadClickHandler = async () => {
-	if (document.querySelector('.dimensions-list-wrapper').checkValidity()) {
+	if (document.querySelector('.dimensions-list-form').checkValidity()) {
 		await resizeImage()
 	}
 }
