@@ -1,6 +1,6 @@
 @font-face {
-	font-family: 'BaksoSapi';
-	src: url('../../assets/BaksoSapi.otf');
+	font-family: 'Bukhari';
+	src: url('../../assets/BukhariScript.ttf');
 }
 
 .download-button {
@@ -10,10 +10,8 @@
 	height: 75px;
 	border: 10px solid transparent;
 	box-sizing: border-box;
-	font-weight: 900;
-	font-family: 'BaksoSapi', 'Source Sans Pro', Helvetica, sans-serif;
-	font-size: 1.25em;
-	letter-spacing: 1em;
+	font-family: 'Bukhari', 'Source Sans Pro', Helvetica, sans-serif;
+	font-size: 2em;
 	padding: 1rem;
 	display: flex;
 	justify-content: center;
