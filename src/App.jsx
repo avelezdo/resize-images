@@ -27,6 +27,7 @@ function App() {
 	return (
 		<div className='App'>
 			<header className='App-header'>
+				<img className='oh' src='/src/oh-complete.webp' alt='' />
 				<img className='resize-me' src='/src/resize_me.png' alt='' />
 				{/* <p>{!data ? 'Loading...' : data}</p> */}
 			</header>
