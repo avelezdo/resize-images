@@ -1,14 +1,15 @@
 const express = require('express')
 const multer = require('multer')
+const path = require('path')
 const app = express()
 const { deleteFilesFromDirectory, getImageNames, oneImageTreatment, manyImageTreatment } = require('./utils')
 app.use(express.json()) // para poder utilizar el body-parser
-
+app.use(express.static(path.join(__dirname, '../dist')))
 const upload = multer({
 	dest: 'images',
 })
 
-app.get('/', function (_, res) {
+app.get('/test', function (_, res) {
 	res.send("It's working from server!")
 })
 
@@ -40,8 +41,12 @@ app.post('/api/resizeImage', upload.single('file'), async function (req, res) {
 })
 
 // All other GET requests not handled before will return our React app
-app.get('*', (req, res) => {
-	res.sendFile(path.resolve(__dirname, '../', 'index.html'))
+app.get('/', (req, res) => {
+	try {
+		res.sendFile(path.resolve(__dirname, '../dist', 'index.html'))
+	} catch (error) {
+		console.log(error)
+	}
 })
 
 app.listen(3001, () => {
