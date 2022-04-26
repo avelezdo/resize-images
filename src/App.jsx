@@ -1,5 +1,5 @@
-import { useState, useEffect, useContext } from 'react'
-import DimensionsContext, { DimensionsContextProvider } from './context/DimensionsContext'
+import { useState } from 'react'
+import { DimensionsContextProvider } from './context/DimensionsContext'
 import { DownloadButtonContextProvider } from './context/DownloadButtonContext'
 
 import UploadImage from './components/UploadImage/UploadImage'
@@ -9,27 +9,16 @@ import DownloadButton from './components/DownloadButton/DownloadButton'
 import './App.css'
 
 function App() {
-	const { areDimensionsEnabled } = useContext(DimensionsContext)
-	const [data, setData] = useState(null)
-	const [size, setSize] = useState(0)
+	const [_, setSize] = useState(0)
 	function setSizeCallback(size) {
 		setSize(size)
 	}
-
-	useEffect(() => {
-		fetch('/api')
-			.then((res) => res.json())
-			.then((data) => {
-				setData(data.message)
-			})
-	}, [])
 
 	return (
 		<div className='App'>
 			<header className='App-header'>
 				<img className='oh' src='./oh-complete.webp' alt='' />
 				<img className='resize-me' src='./resize_me.png' alt='' />
-				{/* <p>{!data ? 'Loading...' : data}</p> */}
 			</header>
 			<section>
 				<DimensionsContextProvider>
