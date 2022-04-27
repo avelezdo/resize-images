@@ -17,8 +17,10 @@ function App() {
 	return (
 		<div className='App'>
 			<header className='App-header'>
-				<img className='oh' src='./oh-complete.webp' alt='' />
-				<img className='resize-me' src='./resize_me.png' alt='' />
+				<div className='bg-orange relative w-full'>
+					<img className='oh hidden xl:block' src='./oh-complete.webp' alt='Weight is also reduced!' />
+				</div>
+				<img className='resize-me' src='./resize_me.png' alt='Resize me!' />
 			</header>
 			<section>
 				<DimensionsContextProvider>
