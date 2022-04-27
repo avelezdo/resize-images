@@ -58,5 +58,11 @@ section {
 .oh {
 	position: absolute;
 	top: 17px;
-	left: 0;
+	left: 20px;
+}
+
+.wow {
+	position: absolute;
+	top: 110px;
+	right: 20px;
 }

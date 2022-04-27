@@ -19,6 +19,7 @@ function App() {
 			<header className='App-header'>
 				<div className='bg-orange relative w-full'>
 					<img className='oh hidden xl:block' src='./oh-complete.webp' alt='Weight is also reduced!' />
+					<img className='wow hidden xl:block' src='./wow.png' alt='Wow!' />
 				</div>
 				<img className='resize-me' src='./resize_me.png' alt='Resize me!' />
 			</header>
