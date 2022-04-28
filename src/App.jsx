@@ -5,6 +5,7 @@ import { DownloadButtonContextProvider } from './context/DownloadButtonContext'
 import UploadImage from './components/UploadImage/UploadImage'
 import DimensionList from './components/DimensionList/DimensionList'
 import DownloadButton from './components/DownloadButton/DownloadButton'
+import Footer from './components/Footer/Footer'
 
 import './App.css'
 
@@ -34,6 +35,7 @@ function App() {
 					</DownloadButtonContextProvider>
 				</DimensionsContextProvider>
 			</section>
+			<Footer></Footer>
 		</div>
 	)
 }
