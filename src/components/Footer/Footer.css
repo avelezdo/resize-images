@@ -14,3 +14,7 @@ footer {
 	padding-bottom: 0.5rem;
 	align-items: center;
 }
+
+footer img {
+	opacity: 0.5;
+}
