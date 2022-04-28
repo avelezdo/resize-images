@@ -23,11 +23,11 @@ function App() {
 				</div>
 				<img className='resize-me' src='./resize_me.png' alt='Resize me!' />
 			</header>
-			<section>
+			<section className='main flex-col items-center md:flex-row'>
 				<DimensionsContextProvider>
 					<DownloadButtonContextProvider>
 						<UploadImage />
-						<div className='w-1/2'>
+						<div className='dimensions-section w-full md:w-1/2'>
 							<DimensionList callback={setSizeCallback} />
 							<DownloadButton />
 						</div>
