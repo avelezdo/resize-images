@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import DimensionsContext from '../context/DimensionsContext'
+import DimensionsContext from '../../context/DimensionsContext'
 
 function Dimensions({ dimensionsCounter, callback }) {
 	const { areDimensionsEnabled } = useContext(DimensionsContext)
