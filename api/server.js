@@ -49,6 +49,8 @@ app.get('/', (req, res) => {
 	}
 })
 
-app.listen(3001, () => {
-	console.log('app listening on port 3001')
+const port = process.env.port || 3001
+
+app.listen(port, () => {
+	console.log(`app listening on port ${port}`)
 })
