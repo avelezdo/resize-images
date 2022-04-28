@@ -15,7 +15,7 @@ function UploadImage() {
 	}, [])
 
 	return (
-		<div className='box w-full md:w-1/2'>
+		<div className='box w-full'>
 			<div className='image-preview' />
 			<div className='upload-options'>
 				<label>

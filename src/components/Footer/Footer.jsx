@@ -2,10 +2,10 @@ import './Footer.css'
 
 export default function Footer() {
 	return (
-		<footer className='relative md:absolute'>
+		<footer className='relative min-w-[460px] w-[460px] md:flex-row md:min-w-[720px] md:absolute lg:min-w-[940px]'>
 			<span>
-				2022
-				<a href='https://albertovelez.dev' target='_blank' className='ml-2 hover:text-indigo-700'>
+				2022<span className='mx-2'>·</span>
+				<a href='https://albertovelez.dev' target='_blank' className='hover:text-indigo-700'>
 					Alberto Vélez
 				</a>
 			</span>

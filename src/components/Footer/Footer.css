@@ -4,14 +4,14 @@ footer {
 	border-top-right-radius: 10px;
 	display: flex;
 	justify-content: space-around;
-	max-width: 737px;
-	min-width: 420px;
+	/* max-width: 737px;
+	min-width: 420px; */
 	bottom: 0;
 	left: 0;
 	right: 0;
 	margin: auto;
-	padding-top: 0.5rem;
-	padding-bottom: 0.5rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 	align-items: center;
 }
 

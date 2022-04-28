@@ -1,7 +1,5 @@
 .box {
 	display: block;
-	min-width: 300px;
-	max-width: 485px;
 	height: 300px;
 	background-color: white;
 	border-radius: 10px;

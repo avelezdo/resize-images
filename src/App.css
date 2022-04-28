@@ -66,12 +66,3 @@ section {
 	top: 110px;
 	right: 20px;
 }
-
-.dimensions-section {
-	max-width: 485px;
-}
-
-.main {
-	width: fit-content;
-	min-width: 420px;
-}
