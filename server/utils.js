@@ -6,11 +6,12 @@ const AdmZip = require('adm-zip')
 tinify.key = 'mcnT6hzfjrHBQMKv51cXj961DkY98bhG'
 
 function deleteFilesFromDirectory(directory) {
-	fs.readdir(directory, (err, files) => {
+	const directoryPath = __dirname + '/' + directory
+	fs.readdir(directoryPath, (err, files) => {
 		if (err) throw err
 
 		for (const file of files) {
-			fs.unlink(path.join(directory, file), (err) => {
+			fs.unlink(path.join(directoryPath, file), (err) => {
 				if (err) throw err
 			})
 		}
@@ -69,7 +70,6 @@ function manyImageTreatment(imageNames) {
 	})
 }
 
-// export { deleteFilesFromDirectory }
 module.exports = {
 	deleteFilesFromDirectory,
 	getImageNames,

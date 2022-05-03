@@ -30,8 +30,8 @@ app.post('/api/resizeImage', upload.single('file'), async function (req, res) {
 	const { fileData, downloadName } =
 		imageNames.length === 1 ? await oneImageTreatment(req.file.path, sizes[0], imageNames[0]) : await manyImageTreatment(imageNames)
 
-	deleteFilesFromDirectory('server/images')
-	deleteFilesFromDirectory('server/zips')
+	deleteFilesFromDirectory('images')
+	deleteFilesFromDirectory('zips')
 
 	res.set('Content-Type', 'application/octet-stream')
 	res.set('Content-Disposition', `attachment; filename=${downloadName}`)
