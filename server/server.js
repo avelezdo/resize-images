@@ -6,7 +6,7 @@ const { deleteFilesFromDirectory, getImageNames, oneImageTreatment, manyImageTre
 app.use(express.json()) // para poder utilizar el body-parser
 app.use(express.static(path.join(__dirname, '../dist')))
 const upload = multer({
-	dest: 'images',
+	dest: 'server/images',
 })
 
 app.get('/test', function (_, res) {
@@ -30,8 +30,8 @@ app.post('/api/resizeImage', upload.single('file'), async function (req, res) {
 	const { fileData, downloadName } =
 		imageNames.length === 1 ? await oneImageTreatment(req.file.path, sizes[0], imageNames[0]) : await manyImageTreatment(imageNames)
 
-	deleteFilesFromDirectory('images')
-	deleteFilesFromDirectory('zips')
+	deleteFilesFromDirectory('server/images')
+	deleteFilesFromDirectory('server/zips')
 
 	res.set('Content-Type', 'application/octet-stream')
 	res.set('Content-Disposition', `attachment; filename=${downloadName}`)
