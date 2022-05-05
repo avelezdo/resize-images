@@ -7,6 +7,7 @@ tinify.key = 'mcnT6hzfjrHBQMKv51cXj961DkY98bhG'
 
 function deleteFilesFromDirectory(directory) {
 	const directoryPath = __dirname + '/' + directory
+	if (!fs.existsSync(directoryPath)) return
 	fs.readdir(directoryPath, (err, files) => {
 		if (err) throw err
 
